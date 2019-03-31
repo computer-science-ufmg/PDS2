@@ -1,32 +1,21 @@
+#include "Indice.hpp"
 #include <iostream>
-#include <map>
-#include <fstream>
-#include <algorithm>
-#include <string>
-#include <iomanip>
+#include <sstream>
 
 using namespace std;
 
 int main(int argc, char const *argv[]) {
-  ifstream file;
-  string word;
-  map<string, int> words;
-  int word_count = 0;
-  float percentual;
+  Indice *index = new Indice();
+  string line, text, word;
 
-  file.open("input.pds");
-  while (file >> word) {
-    if(word.size() >= 3){
-      transform(word.begin(), word.end(), word.begin(), ::tolower);
-      words[word]++;
-    }
-    word_count++;
+  while(getline(cin, line)){
+    text += ' '+line;
   }
-  map<string, int>::iterator it;
-  for (it = words.begin(); it != words.end(); ++it) {
-    percentual = it->second/(float)word_count;
-    cout << it->first << ' ' << it->second << ' ' << std::fixed << std::setprecision(2) << percentual << endl;
+  istringstream string_stream(text);
+  while (string_stream >> word) {
+    index->push(word);
   }
-  file.close();
+  index->print_index();
+  delete index;
   return 0;
 }
