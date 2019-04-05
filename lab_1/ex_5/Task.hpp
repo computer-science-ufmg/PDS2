@@ -2,8 +2,7 @@
 #define TASK_H
 
 #include <list>
-#include <map>
-#include <sstream>
+#include <vector>
 #include <iostream>
 #include <algorithm>
 
@@ -25,13 +24,16 @@ struct Scheduler{
 	int total_tasks;
 	int total_time;
 	list<Task*> scheduler_queue;
-	map<string, Task*> tasks;
+	vector<Task*> tasks;
 
-	Scheduler(int quantum, const map<string, Task*> &tasks);
+	Scheduler(int quantum, const vector<Task*> &tasks);
+	~Scheduler();
 	void check_incoming_tasks();
 	void round_robin();
 	bool tasks_unfinished();
 	void display_result();
+	static bool sort_by_arrival(Task* a, Task* b);
+	static bool sort_by_id(Task* a, Task* b);
 };
 
 #endif

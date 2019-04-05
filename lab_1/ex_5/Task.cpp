@@ -13,17 +13,24 @@ void Task::print(){
   cout << "Task " << this->id << ", Duration: [" << this->arrival << ", " << this->end << ']' << endl;
 }
 
-Scheduler::Scheduler(int quantum, const map<string, Task*> &tasks){
+Scheduler::Scheduler(int quantum, const vector<Task*> &tasks){
   this->quantum = quantum;
   this->tasks = tasks;
+  sort(this->tasks.begin(), this->tasks.end(), this->sort_by_arrival);
   this->total_tasks = this->tasks.size();
   this->total_time = 0;
 }
 
+Scheduler::~Scheduler(){
+  for(vector<Task*>::iterator it = this->tasks.begin(); it != this->tasks.end(); ++it) {
+    Task* task = *it;
+    delete task;
+  }
+}
+
 void Scheduler::check_incoming_tasks(){
-  map<string, Task*>::iterator it;
-  for (it = this->tasks.begin(); it != this->tasks.end(); ++it) {
-    Task *task = it->second;
+  for (vector<Task*>::iterator it = this->tasks.begin(); it != this->tasks.end(); ++it) {
+    Task *task = *it;
     if (!task->in_queue && task->arrival <= this->total_time && task->duration > 0) {
       // cout << "Task " << task->id << " arrived at time " << this->total_time << endl;
       this->scheduler_queue.push_back(task);
@@ -53,28 +60,36 @@ void Scheduler::round_robin(){
     }
   }
   if(this->tasks_unfinished()){
-    this->total_time += this->quantum;
+    this->total_time++;
     this->round_robin();
   }
 }
 
 bool Scheduler::tasks_unfinished(){
-  for (map<string, Task*>::iterator it = this->tasks.begin(); it != this->tasks.end(); ++it) {
-    Task *task = it->second;
+  for (vector<Task*>::iterator it = this->tasks.begin(); it != this->tasks.end(); ++it) {
+    Task *task = *it;
     if(task->duration > 0) return true;
   }
   return false;
 }
 
 void Scheduler::display_result(){
-  map<string, Task*> ordered_tasks;
-  for (map<string, Task*>::iterator it = this->tasks.begin(); it != this->tasks.end(); ++it) {
-    ostringstream oss;
-    oss << it->second->id;
-    ordered_tasks[oss.str()] = it->second;
-  }
-  for (map<string, Task*>::iterator it = ordered_tasks.begin(); it != ordered_tasks.end(); ++it) {
-    Task *task = it->second;
+  sort(this->tasks.begin(), this->tasks.end(), this->sort_by_id);
+  for (vector<Task*>::iterator it = this->tasks.begin(); it != this->tasks.end(); ++it) {
+    Task *task = *it;
     task->print();
   }
+}
+
+bool Scheduler::sort_by_arrival(Task* a, Task* b){
+  if(a->arrival == b->arrival){
+    return a->id < b->id;
+  }
+  else {
+    return a->arrival < b->arrival;
+  }
+}
+
+bool Scheduler::sort_by_id(Task* a, Task* b){
+  return a->id < b->id;
 }
