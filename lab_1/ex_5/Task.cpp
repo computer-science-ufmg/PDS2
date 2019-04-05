@@ -44,19 +44,19 @@ void Scheduler::round_robin(){
   for (list<Task*>::iterator it = this->scheduler_queue.begin(); it != this->scheduler_queue.end(); ++it, this->scheduler_queue.pop_front()) {
     Task *task = *it;
     if(task->duration > this->quantum){
-      task->duration -= this->quantum;
-      this->total_time += this->quantum;
       // cout << "Task " << task->id << " ran for " << this->quantum << " stoping at " << this->total_time << ", " << task->duration << " remaining" << endl;
+      this->total_time += this->quantum;
       this->check_incoming_tasks();
+      task->duration -= this->quantum;
       this->scheduler_queue.push_back(task);
     }
     else{
-      this->total_time += task->duration;
       // cout << "Task " << task->id << " ran for " << this->quantum << " and finished at " << this->total_time << endl;
+      this->total_time += task->duration;
+      this->check_incoming_tasks();
       task->duration = 0;
       task->in_queue = false;
       task->end = this->total_time;
-      this->check_incoming_tasks();
     }
   }
   if(this->tasks_unfinished()){
