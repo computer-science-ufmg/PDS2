@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <string>
 
 #include "Televisao.hpp"
@@ -10,7 +9,6 @@ using namespace std;
 int main(){
   Televisao *tv = new Televisao();
   Controle *control = new Controle(tv);
-  vector<string> instructions;
   string instruction;
   int arg;
   while(cin >> instruction){
