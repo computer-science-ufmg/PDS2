@@ -66,15 +66,15 @@ void A2::set_var_protected2(int v){
 }
 
 void A2::set_var_public(int v){
-  cout << "Inacessivel" << endl;
+  // cout << "Inacessivel" << endl;
 }
 
 void A2::set_var_private(int v){
-  cout << "Inacessivel" << endl;
+  // cout << "Inacessivel" << endl;
 }
 
 void A2::set_var_protected(int v){
-  cout << "Inacessivel" << endl;
+  // cout << "Inacessivel" << endl;
 }
 
 //----------------------------------------------------------------------------//
@@ -97,7 +97,7 @@ int A3::get_var_protected3(){
 }
 
 void A3::set_var_private2(int v){
-  cout << "Inacessivel" << endl;
+  // cout << "Inacessivel" << endl;
 }
 
 void A3::set_var_public3(int v){
@@ -124,7 +124,7 @@ string ClassePublica::get_var_private(){
 }
 
 void ClassePublica::set_var_private(int v){
-  cout << "Inacessivel" << endl;
+  // cout << "Inacessivel" << endl;
 }
 
 //----------------------------------------------------------------------------//
@@ -145,15 +145,15 @@ string ClassePrivada::get_var_protected(){
 }
 
 void ClassePrivada::set_var_public(int v){
-  cout << "Inacessivel" << endl;
+  // cout << "Inacessivel" << endl;
 }
 
 void ClassePrivada::set_var_private(int v){
-  cout << "Inacessivel" << endl;
+  // cout << "Inacessivel" << endl;
 }
 
 void ClassePrivada::set_var_protected(int v){
-  cout << "Inacessivel" << endl;
+  // cout << "Inacessivel" << endl;
 }
 
 //----------------------------------------------------------------------------//

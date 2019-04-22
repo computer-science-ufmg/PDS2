@@ -51,17 +51,17 @@ int main(){
   cout << pub.get_var_private() << endl;
   cout << pub.get_var_protected() << endl;
 
-  cout << pri.get_var_public() << endl;
+  cout << pri.get_var_public() << endl; // 1
   cout << pri.get_var_private() << endl;
-  cout << pri.get_var_protected() << endl;
+  cout << pri.get_var_protected() << endl; // 3
 
   cout << over.get_var_public() << endl;
   cout << over.get_var_private() << endl;
   cout << over.get_var_protected() << endl;
 
-  cout << a2.get_var_public() << endl;
+  cout << a2.get_var_public() << endl; // 1
   cout << a2.get_var_private() << endl;
-  cout << a2.get_var_protected() << endl;
+  cout << a2.get_var_protected() << endl; // 3
   cout << a2.get_var_public2() << endl;
   cout << a2.get_var_private2() << endl;
   cout << a2.get_var_protected2() << endl;

@@ -1,30 +1,29 @@
+#include <string>
 #ifndef CLASSES_H
 #define CLASSES_H
 
-using namespace std;
-
 class ClasseBase{
   public:
-      int var_public;
-      int get_var_public();
-      int get_var_private();
-      int get_var_protected();
-      void virtual set_var_public(int v);
-      void virtual set_var_private(int v);
-      void virtual set_var_protected(int v);
+    int var_public;
+    int get_var_public();
+    int get_var_private();
+    int get_var_protected();
+    void virtual set_var_public(int v);
+    void virtual set_var_private(int v);
+    void virtual set_var_protected(int v);
   private:
-      int var_private;
+    int var_private;
   protected:
-      int var_protected;
+    int var_protected;
 };
 
 
 class A2 : private ClasseBase{
   public:
   	int var_public2;
-    string get_var_public();
-    string get_var_private();
-    string get_var_protected();
+    std::string get_var_public();
+    std::string get_var_private();
+    std::string get_var_protected();
     int get_var_public2();
     int get_var_private2();
     int get_var_protected2();
@@ -44,7 +43,7 @@ class A2 : private ClasseBase{
 class A3 : public A2{
   public:
   	int var_public3;
-    string get_var_private2();
+    std::string get_var_private2();
     int get_var_public3();
     int virtual get_var_private3();
     int get_var_protected3();
@@ -63,7 +62,7 @@ class ClassePublica : public ClasseBase{
   public:
   	int var_public3;
     ClassePublica();
-    string get_var_private();
+    std::string get_var_private();
     void set_var_private(int v) override;
   private:
   	int var_private3;
@@ -75,9 +74,9 @@ class ClassePublica : public ClasseBase{
 class ClassePrivada : private ClasseBase{
   public:
     ClassePrivada();
-    string get_var_public();
-    string get_var_private();
-    string get_var_protected();
+    std::string get_var_public();
+    std::string get_var_private();
+    std::string get_var_protected();
     void set_var_public(int v) override;
     void set_var_private(int v) override;
     void set_var_protected(int v) override;

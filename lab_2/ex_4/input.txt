@@ -1,0 +1,28 @@
+defastro
+Estrela Sol
+Temperatura 300000
+Raio 3500
+Gravidade 780
+Gasoso True
+
+defastro
+Planeta Terra
+Temperatura 25
+Raio 50
+Gravidade 9.8
+Gasoso False
+
+defastro
+Planeta Marte
+Temperatura 20
+Raio 33
+Gravidade 3.02
+Gasoso False
+
+defastro
+Lua Fobos
+Orbita Marte
+Temperatura -40
+Raio 11
+Gravidade 0.001
+Gasoso False
