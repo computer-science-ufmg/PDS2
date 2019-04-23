@@ -29,16 +29,16 @@ void ClasseBase::set_var_protected(int v){
 
 //----------------------------------------------------------------------------//
 
-string A2::get_var_public(){
-  return "Inacessivel";
+int A2::get_var_public(){
+  return ClasseBase::get_var_public();
 }
 
 string A2::get_var_private(){
   return "Inacessivel";
 }
 
-string A2::get_var_protected(){
-  return "Inacessivel";
+int A2::get_var_protected(){
+  return ClasseBase::get_var_protected();
 }
 
 int A2::get_var_public2(){
@@ -66,7 +66,7 @@ void A2::set_var_protected2(int v){
 }
 
 void A2::set_var_public(int v){
-  // cout << "Inacessivel" << endl;
+   ClasseBase::set_var_public(v);
 }
 
 void A2::set_var_private(int v){
@@ -74,11 +74,18 @@ void A2::set_var_private(int v){
 }
 
 void A2::set_var_protected(int v){
-  // cout << "Inacessivel" << endl;
+   ClasseBase::set_var_protected(v);
 }
 
 //----------------------------------------------------------------------------//
 
+string A3::get_var_public(){
+  return "Inacessivel";
+}
+
+string A3::get_var_protected(){
+  return "Inacessivel";
+}
 
 string A3::get_var_private2(){
   return "Inacessivel";
@@ -132,28 +139,28 @@ void ClassePublica::set_var_private(int v){
 ClassePrivada::ClassePrivada(){
 }
 
-string ClassePrivada::get_var_public(){
-  return "Inacessivel";
+int ClassePrivada::get_var_public(){
+  return ClasseBase::get_var_public();
 }
 
 string ClassePrivada::get_var_private(){
   return "Inacessivel";
 }
 
-string ClassePrivada::get_var_protected(){
-  return "Inacessivel";
+int ClassePrivada::get_var_protected(){
+  return ClasseBase::get_var_protected();
 }
 
 void ClassePrivada::set_var_public(int v){
-  // cout << "Inacessivel" << endl;
+   ClasseBase::set_var_public(v);
 }
 
 void ClassePrivada::set_var_private(int v){
-  // cout << "Inacessivel" << endl;
+   // ClasseBase::set_var_private(v);
 }
 
 void ClassePrivada::set_var_protected(int v){
-  // cout << "Inacessivel" << endl;
+   ClasseBase::set_var_protected(v);
 }
 
 //----------------------------------------------------------------------------//

@@ -21,9 +21,9 @@ class ClasseBase{
 class A2 : private ClasseBase{
   public:
   	int var_public2;
-    std::string get_var_public();
+    int get_var_public();
     std::string get_var_private();
-    std::string get_var_protected();
+    int get_var_protected();
     int get_var_public2();
     int get_var_private2();
     int get_var_protected2();
@@ -43,6 +43,8 @@ class A2 : private ClasseBase{
 class A3 : public A2{
   public:
   	int var_public3;
+    std::string get_var_public();
+    std::string get_var_protected();
     std::string get_var_private2();
     int get_var_public3();
     int virtual get_var_private3();
@@ -74,9 +76,9 @@ class ClassePublica : public ClasseBase{
 class ClassePrivada : private ClasseBase{
   public:
     ClassePrivada();
-    std::string get_var_public();
+    int get_var_public();
     std::string get_var_private();
-    std::string get_var_protected();
+    int get_var_protected();
     void set_var_public(int v) override;
     void set_var_private(int v) override;
     void set_var_protected(int v) override;

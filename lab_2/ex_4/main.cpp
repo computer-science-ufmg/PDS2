@@ -38,7 +38,7 @@ int main() {
   cout << solar_sistem->get_astros_number() << endl;
   cout << solar_sistem->get_planets_number() << endl;
   cout << solar_sistem->get_solid_planets_number() << endl;
-  cout << fixed << setprecision(2) << solar_sistem->get_average_moons_per_planet() << endl;
+  cout << fixed << setprecision(2) << (double)((int)(solar_sistem->get_average_moons_per_planet()*100))/100 << endl;
   cout << most_moons->get_name() << endl;
   cout << hotest_planet->get_name() << endl;
   cout << coldest_planet->get_name() << endl;
