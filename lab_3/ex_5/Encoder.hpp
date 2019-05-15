@@ -10,12 +10,13 @@ namespace Encoder {
   void print();
   int getCipherIndex(char c);
   std::string getMessage();
+  std::string getCifra();
 
   class Enc {
 
     public:
       Enc(std::string cifra);
-      void EncodeMessage(std::string dec_message);
+      void EncodeMessage(std::string message);
   };
 }
 
